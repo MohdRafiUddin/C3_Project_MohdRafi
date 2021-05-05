@@ -7,6 +7,8 @@ import java.util.List;
 public class RestaurantService {
     private static List<Restaurant> restaurants = new ArrayList<>();
 
+    public List<Restaurant> getRestaurants() { return restaurants; }
+
     public Restaurant findRestaurantByName(String restaurantName) throws restaurantNotFoundException {
         if (StringUtils.isBlank(restaurantName) || restaurants == null || restaurants.isEmpty()) {
             return null;
@@ -20,7 +22,6 @@ public class RestaurantService {
         return searchingRestaurant;
     }
 
-
     public Restaurant addRestaurant(String name, String location, LocalTime openingTime, LocalTime closingTime) {
         Restaurant newRestaurant = new Restaurant(name, location, openingTime, closingTime);
         restaurants.add(newRestaurant);
@@ -31,9 +32,5 @@ public class RestaurantService {
         Restaurant restaurantToBeRemoved = findRestaurantByName(restaurantName);
         restaurants.remove(restaurantToBeRemoved);
         return restaurantToBeRemoved;
-    }
-
-    public List<Restaurant> getRestaurants() {
-        return restaurants;
     }
 }

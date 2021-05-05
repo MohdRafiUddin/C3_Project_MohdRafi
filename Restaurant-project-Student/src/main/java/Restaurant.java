@@ -59,4 +59,8 @@ public class Restaurant {
     public String getName() {
         return name;
     }
+
+    public Object findTotalMenuItemsCost() {
+        return null;
+    }
 }

@@ -60,7 +60,11 @@ public class Restaurant {
         return name;
     }
 
-    public Object findTotalMenuItemsCost() {
-        return null;
+    public int findTotalMenuItemsCost() {
+        int menuCost = 0;
+        if (getMenu() == null || getMenu().isEmpty()) {
+            return menuCost;
+        }
+        return getMenu().stream().mapToInt(Item::getPrice).sum();
     }
 }
